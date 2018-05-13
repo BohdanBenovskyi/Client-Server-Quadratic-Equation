@@ -23,6 +23,14 @@ class SOne extends Thread {
          while (true) {
             String str = in.readLine();
             
+            if (str.equals("Slow"))
+            	Thread.currentThread().setPriority(MIN_PRIORITY);
+            if (str.equals("Normal"))
+            	Thread.currentThread().setPriority(NORM_PRIORITY);;
+            if (str.equals("Fast"))
+            	Thread.currentThread().setPriority(MAX_PRIORITY);
+            
+            
             if (str.equals("Compute")) {
             	double a = Double.valueOf(in.readLine());
             	double b = Double.valueOf(in.readLine());
