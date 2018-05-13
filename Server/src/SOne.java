@@ -23,36 +23,50 @@ class SOne extends Thread {
 			while (true) {
 				String str = in.readLine();
 
-				if (str.equals("Slow"))
+				if (str.equals("Slow")) {
 					Thread.currentThread().setPriority(MIN_PRIORITY);
-				if (str.equals("Normal"))
+					System.out.println("Set priority of thread " + Thread.currentThread().getId() + " to MIN_PRIORITY");
+				}
+				if (str.equals("Normal")) {
 					Thread.currentThread().setPriority(NORM_PRIORITY);
-				if (str.equals("Fast"))
+					System.out.println("Set priority of thread " + Thread.currentThread().getId() + " to NORM_PRIORITY");
+				}
+				if (str.equals("Fast")) {
 					Thread.currentThread().setPriority(MAX_PRIORITY);
+					System.out.println("Set priority of thread " + Thread.currentThread().getId() + " to MAX_PRIORITY");
+				}
 
 				if (str.equals("Compute")) {
 					double a = Double.valueOf(in.readLine());
 					double b = Double.valueOf(in.readLine());
 					double c = Double.valueOf(in.readLine());
 
-					System.out.println("A: " + a + " B: " + b + " C: " + c);
+					System.out.println("A: " + a);
+					System.out.println("B: " + b);
+					System.out.println("C: " + c);
 
-					double d = Math.pow(b, 2) - (4 * a * c);
+					double d = (Math.pow(b, 2)) - (4 * a * c);
+					System.out.println("D: " + d);
 
 					if (d > 0) {
 						double x1 = ((-b) - Math.sqrt(d)) / (2 * a);
 						double x2 = ((-b) + Math.sqrt(d)) / (2 * a);
+						
+						System.out.println("X1: " + x1);
+						System.out.println("X2: " + x2);
 
 						out.println("Result");
-						out.println(x1);
-						out.println(x2);
+						out.println(x1 + " " + x2);
 					}
 
 					if (d == 0) {
 						double x1 = (-b) / (2 * a);
+						
+						System.out.println("X1: " + x1);
+						System.out.println("X2: " + x1);
+						
 						out.println("Result");
-						out.println(x1);
-						out.println(x1);
+						out.println(x1 + " " + x1);
 					}
 
 					if (d < 0) {
