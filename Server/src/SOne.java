@@ -22,10 +22,41 @@ class SOne extends Thread {
       try {
          while (true) {
             String str = in.readLine();
+            
+            if (str.equals("Compute")) {
+            	double a = Double.valueOf(in.readLine());
+            	double b = Double.valueOf(in.readLine());
+            	double c = Double.valueOf(in.readLine());
+            	
+            	System.out.println("A: " + a + " B: " + b + " C: " + c);
+            	
+            	double d = Math.pow(b, 2) - (4 * a * c);    
+            	
+            	if(d > 0) {
+            		double x1 = ((-b) - Math.sqrt(d))/(2*a);
+            		double x2 = ((-b) + Math.sqrt(d))/(2*a);
+            		
+            		out.println("Result");
+            		out.println(x1);
+            		out.println(x2);
+            	}
+            	
+            	if(d == 0) {
+            		double x1 = (-b)/(2*a);
+            		out.println("Result");
+            		out.println(x1);
+            		out.println(x1);
+            	}
+            	
+            	if(d < 0) {
+            		out.println("Result");
+            		out.println("No result!");
+            	}
+            	
+            }
+            
             if (str.equals("END"))
                break;
-            System.out.println("Echoing: " + str);
-            out.println(str);
          }
          System.out.println("closing...");
       }
